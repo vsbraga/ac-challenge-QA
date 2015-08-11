@@ -7,13 +7,13 @@ Feature: 1: As a customer
 
 #Scenario1
 
- # Scenario: Add a product to cart and go to shopping cart page
- #   Given I am on WilliamsSonomaPage
- #   When I select a category using a flyout menu
- #   And I choose a product
- #   And I add this product to cart
- #   And I click on checkout button
- #   Then I should see the product on the shopping cart page
+  Scenario: Add a product to cart and go to shopping cart page
+    Given I am on WilliamsSonomaPage
+    When I select a category using a flyout menu
+    And I choose a product
+    And I add this product to cart
+    And I click on checkout button
+    Then I should see the product on the shopping cart page
 
 #Scenario2
 

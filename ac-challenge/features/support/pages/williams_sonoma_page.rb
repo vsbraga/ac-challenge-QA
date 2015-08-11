@@ -1,6 +1,8 @@
 class WilliamsSonomaPage
   include PageObject
   page_url  'www.williams-sonoma.com'
+
+  #Feature ac_challenge
   #Scenario 1
   link(:cookware, :class => 'topnav-cookware ')
   link(:cookware_sets, :text => 'Cookware Sets')
@@ -22,6 +24,7 @@ class WilliamsSonomaPage
   link(:product_selected, :text => 'Breville Quick Touch Microwave')
   @product_to_compare
 
+
   #Scenario 1 def
   def goto_category
     #binding.pry
@@ -35,6 +38,7 @@ class WilliamsSonomaPage
   end
 
   def add_to_cart
+    sleep(2)
 
     self.add_element.when_present.click
 
@@ -80,11 +84,62 @@ class WilliamsSonomaPage
 
   def compare
    if @product_to_compare.exist?
-     print("true")
+     puts "true"
 
    end
 
   end
+
+  #Feature edit_cart
+  # Scenario1
+
+  link(:fryer, :text => ' Breville Smart Fryer ')
+  text_field(:qty, :class => 'storetext')
+
+  #Scenario2
+  link(:delete_link, :class => 'delete-item')
+  h2(:cart_empty, :text => 'Your Shopping Cart is Currently Empty')
+
+
+  #def Scenario1
+
+  def choose_product2
+    self.fryer_element.present.click
+  end
+
+  def clickon_checkout
+    self.checkout_btn_element.present.click
+
+  end
+
+  def change_qty
+    sleep(2)
+    self.qty = 2
+  end
+
+  def check_changes
+    if self.qty >= 2
+      puts "true"
+    end
+
+  end
+
+  #def Scenario2
+
+  def delete_item
+    self.delete_link_present.click
+  end
+
+  def check_cart
+    if self.cart_empty?
+      puts "true"
+    end
+
+  end
+
+
+
+
 
 
 end
