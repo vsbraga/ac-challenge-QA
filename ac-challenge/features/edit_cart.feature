@@ -14,7 +14,7 @@ Feature: As a customer
 
   #Scenario2
 
-  #Scenario: Add a product to cart and delete it.
+  Scenario: Add a product to cart and delete it.
     Given I am on WilliamsSonomaPage
     When I add a fryer to the shopping cart
     And I delete the product
